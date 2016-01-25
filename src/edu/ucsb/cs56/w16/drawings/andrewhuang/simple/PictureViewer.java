@@ -22,7 +22,7 @@ public class PictureViewer
 	frame.setSize(500,500); 
 	
 	// Set your own title
-	frame.setTitle("Andrew Huang's Drawing");
+	frame.setTitle("Andrew Huang's Snowman Drawing");
 	
 	// Always do this so that the red X (or red circle) works
 	// to close the window. 

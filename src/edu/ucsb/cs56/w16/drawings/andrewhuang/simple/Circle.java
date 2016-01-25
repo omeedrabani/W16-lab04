@@ -4,7 +4,7 @@ package edu.ucsb.cs56.w16.drawings.andrewhuang.simple;
  * Circle extends Ellipse2D to make it easier to draw circles
  * because the parameters to the constructor are more convenient
  * 
- * @author P. Conrad 
+ * @author P. Conrad  
  * @version CS56, W16, UCSB
  */
 

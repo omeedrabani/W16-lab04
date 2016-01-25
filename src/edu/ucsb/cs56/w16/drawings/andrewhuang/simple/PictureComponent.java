@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
-// the four tools things we'll use to draw
+// the four tools things we'll use to draw 
 
 import java.awt.geom.Line2D;  // single lines
 import java.awt.geom.Rectangle2D; 
