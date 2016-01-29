@@ -70,19 +70,19 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 	
-	Sun s2 = new Sun(50,70,20);
-        HouseWithWindows h1 = new HouseWithWindows(20,150,20,40);
+	Sun s2 = new Sun(50,90,20);
+        HouseWithWindows h1 = new HouseWithWindows(20,170,20,40);
 	
 	g2.setColor(Color.BLUE);    g2.draw(h1);
 	g2.setColor(Color.MAGENTA); g2.draw(s2);
 	
-	SunWithFace s1 = new SunWithFace(100,240,40);
+	SunWithFace s1 = new SunWithFace(150,240,35);
 	g2.setColor(Color.CYAN); g2.draw(s1);
 	
 	// Make a black sun that's half the size, 
 	// and moved over 150 pixels in x direction
 	Shape s3 = ShapeTransforms.scaledCopyOfLL(s1,0.5,0.5);
-	s3 = ShapeTransforms.translatedCopyOf(s3,150,0);
+	s3 = ShapeTransforms.translatedCopyOf(s3,165,0);
 	g2.setColor(Color.BLACK); g2.draw(s3);
 	
 	// Here's a sun that's 3x as big
@@ -102,7 +102,8 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(s2); 
 
-        CoffeeCup c1 = new CoffeeCup(100,350,90,80);
+	g2.setColor(new Color(0x339900)); 
+        CoffeeCup c1 = new CoffeeCup(150,350,70,60);
 	
 	g2.draw(c1);
 	g2.setColor(new Color(0x8F00FF)); 
@@ -123,11 +124,12 @@ public class AllMyDrawings
      */
     
     public static void drawPicture3(Graphics2D g2) {
-	
+
+	// A drawing with two suns - uncomment this one
+	/*
 	// label the drawing
-	
+
 	g2.drawString("A Couple Suns by Nicole Moghaddas", 20,20);
-	
 	
 	// Draw some suns.
 	
@@ -136,6 +138,26 @@ public class AllMyDrawings
 	
 	g2.setColor(Color.MAGENTA);     g2.draw(reg);
 	g2.setColor(Color.YELLOW);   g2.draw(smiley);
+	*/
 	
+	//////////////////////////////////////////////////////////////////////
+	// A drawing of a scene - uncomment this one
+
+	// label
+	g2.drawString("A Soothing Day :]", 20,20);
+
+	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+	Stroke orig=g2.getStroke();
+	g2.setStroke(thick);
+	SunWithFace smile = new SunWithFace(450,120,50);
+	g2.setColor(Color.YELLOW); g2.draw(smile);
+
+	g2.setStroke(orig);
+	HouseWithWindows house = new HouseWithWindows(180, 240, 200, 200);
+	g2.setColor(Color.DARK_GRAY); g2.draw(house);
+
+	g2.setStroke(thick);
+	CoffeeCup mug = new CoffeeCup(500, 390, 50, 50);
+	g2.setColor(Color.PINK); g2.draw(mug);
     }       
 }
