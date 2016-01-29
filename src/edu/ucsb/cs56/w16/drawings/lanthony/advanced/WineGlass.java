@@ -20,51 +20,24 @@ public class WineGlass extends Glass implements Shape
 	super(x,y,width,height);
 	
 	GeneralPath gp = this.get();
-	/*
-	GeneralPath stem = new GeneralPath();
-	stem.moveTo( 288, 330);
-	stem.lineTo(288, 400);
 
-	GeneralPath stem2 = new GeneralPath();
-	stem2.moveTo(292, 330);
-	stem2.lineTo(292, 400);
-	
-	GeneralPath stem = new GeneralPath();
-	stem.moveTo( x + (1/2)*width , y + (1/2)*height);
-	stem.lineTo(x + (1/2)*width , y + (1/2)*height + height);
-
-	GeneralPath stem2 = new GeneralPath();
-	stem2.moveTo(x + (1/2)*width + (1/10)*width, y + (1/2)*height);
-	stem2.lineTo(x + (1/2) * width + (1/10)*width,  y + (1/2)*height + height);
-	
-
-
-	GeneralPath stem = new GeneralPath();
-	stem.moveTo(x + (1/2)*width,  y);
-	stem.lineTo(x + (1/2)*width, y + height );
-
-	Shape stem2 =  new Line2D.Double(x + (1/2)*width + (1/10)*width,
-					y + height,x + (1/2)*width + (1/10)*width,y + 2*height );
-    
-	
-      	GeneralPath gp2 = this.get();
-	gp2.draw(new Line2D.Double(x + (1/2)*width + (1/10)*width,
-				   y + height,x + (1/2)*width + (1/10)*width,y + 2*height ));
-    */
 
 	double stop = height;
 	double sW = .50*width;
 	double sHt = 1.5 * height;
 		
 	Rectangle2D.Double stem =
-	    new Rectangle2D.Double(x + sW, y + height, .50* sW, sHt);
+	    new Rectangle2D.Double(x + 7.5*sW, y + height, .25* sW, sHt);
+
+
+	Shape glassRing = new Ellipse2D.Double(x + 7.5*sW - .30*sHt, y + (.89)*height + sHt, .65*sHt ,(1.2)*sW);
+
 	
-	//	Shape glassRing = new Ellipse2D.Double(x+265,y+397,(1/5)*width,(1/3)*height);
+	//	Shape glassRing = new Ellipse2D.Double(x + 7.5*sW, y + height + sHt,(1/5)*width,(1/3)*height);
 
 	GeneralPath wholeGlass = this.get();
         wholeGlass.append(stem, false);
-	// wholeGlass.append(stem2, false);
-	//	wholeGlass.append(glassRing, false); 
+      	wholeGlass.append(glassRing, false); 
        
 
 
