@@ -41,18 +41,18 @@ public class Sun extends GeneralPathWrapper implements Shape
 	Ellipse2D.Double sunCircle = new Ellipse2D.Double(x-r, y-r, r*2, r*2);
 
 	//create the 6 rays of the sun
-	Line2D.Double ray1 = new Line2D.Double (x, y - 3.0*r, // top ray was 3.5 & 2.5
+	Line2D.Double ray1 = new Line2D.Double (x, y - 3.0*r, // top ray
 						x, y - 1.75*r);
-	Line2D.Double ray2 = new Line2D.Double (x + 1.25*r, y - 1.15*r, // top right ray was 1.5 & 2.5
+	Line2D.Double ray2 = new Line2D.Double (x + 1.25*r, y - 1.15*r, // top right ray
 						x + 2.25*r, y - 2.15*r);
-	Line2D.Double ray3 = new Line2D.Double (x + 1.25*r, y + 1.15*r, // bottom right ray was 1.5&1.5
-						x + 2.15*r, y + 2.15*r); // was 2.5&2.5
-	Line2D.Double ray4 = new Line2D.Double (x, y + 1.75*r, // bottom ray wasy+2.0
-						x, y + 3.0*r);//was3.3
-	Line2D.Double ray5 = new Line2D.Double (x - 1.25*r, y + 1.05*r, // bottom left ray was1.5&1.5
-						x - 2.25*r, y + 2.05*r);//was2.5&2.5
-	Line2D.Double ray6 = new Line2D.Double (x - 1.25*r, y - 1.05*r, // top left ray1.5&1.5
-						x - 2.25*r, y - 2.05*r);//2.5&2.5
+	Line2D.Double ray3 = new Line2D.Double (x + 1.25*r, y + 1.15*r, // bottom right ray
+						x + 2.15*r, y + 2.15*r);
+	Line2D.Double ray4 = new Line2D.Double (x, y + 1.75*r, // bottom ray
+						x, y + 3.0*r);
+	Line2D.Double ray5 = new Line2D.Double (x - 1.25*r, y + 1.05*r, // bottom left ray
+						x - 2.25*r, y + 2.05*r);
+	Line2D.Double ray6 = new Line2D.Double (x - 1.25*r, y - 1.05*r, // top left ray
+						x - 2.25*r, y - 2.05*r);
 
 	// put the rays and circle together
 	GeneralPath wholeSun = this.get();

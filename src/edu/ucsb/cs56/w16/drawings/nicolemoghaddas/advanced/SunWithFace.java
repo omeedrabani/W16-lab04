@@ -23,8 +23,6 @@ public class SunWithFace extends Sun implements Shape
 	// construct the basic sun shell
 	super(x,y,r);
 	
-	// get the GeneralPath that we are going to append stuff to
-	GeneralPath gp = this.get();
 
 	double noseRadius = 0.01 * r;
 	double eyeRadius = 0.065 * r;
@@ -33,10 +31,13 @@ public class SunWithFace extends Sun implements Shape
 	double leftEyeCenterX = x - 0.35*r;
 	double leftEyeCenterY = y - 0.35*r;
 
-	Ellipse2D.Double nose = new Ellipse2D.Double(x-noseRadius, y-noseRadius, noseRadius*2, noseRadius*2);
-	Ellipse2D.Double leftEye = new Ellipse2D.Double(leftEyeCenterX-eyeRadius, leftEyeCenterY-eyeRadius,
+	Ellipse2D.Double nose =
+	    new Ellipse2D.Double(x-noseRadius, y-noseRadius, noseRadius*2, noseRadius*2);
+	Ellipse2D.Double leftEye =
+	    new Ellipse2D.Double(leftEyeCenterX-eyeRadius, leftEyeCenterY-eyeRadius,
 							eyeRadius*2, eyeRadius*2);
-	Ellipse2D.Double rightEye = new Ellipse2D.Double(rightEyeCenterX-eyeRadius, rightEyeCenterY-eyeRadius,
+	Ellipse2D.Double rightEye =
+	    new Ellipse2D.Double(rightEyeCenterX-eyeRadius, rightEyeCenterY-eyeRadius,
 							 eyeRadius*2, eyeRadius*2);
 	
 	Rectangle2D.Double leftGlasses =
