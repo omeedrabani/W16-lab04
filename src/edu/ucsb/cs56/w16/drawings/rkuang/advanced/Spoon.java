@@ -3,7 +3,6 @@ import java.awt.geom.GeneralPath; // combinations of lines and curves
 import java.awt.Shape; // general class for shapes
 
 import java.awt.geom.Line2D; 
-import java.awt.geom.Rectangle2D;
 
 import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
@@ -35,9 +34,9 @@ public class Spoon extends GeneralPathWrapper implements Shape {
         // width and height of the original points used to 
         // plot the *hard-coded* spoon
 
-        final double ORIG_ULX = 130.0; 
+        final double ORIG_ULX = 100.0; 
         final double ORIG_ULY = 50.0; 
-        final double ORIG_WIDTH = 200.0; 
+        final double ORIG_WIDTH = 100.0; 
         final double ORIG_HEIGHT = 340.0; 
 
         // left side of the spoon
