@@ -22,11 +22,11 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	Glass h1 = new Glass(100,250,50,75);
+	Glass h1 = new Glass(100,170,50,75);
 	g2.setColor(Color.BLACK); g2.draw(h1);
 
 	
-	Glass w2 = new Glass(400,100,100,150);
+	Glass w2 = new Glass(200,50,100,150);
 	g2.setColor(Color.BLACK); g2.draw(w2);
 	g2.setColor(Color.MAGENTA); g2.draw(w2);
 
@@ -40,7 +40,7 @@ public class AllMyDrawings
 	g2.draw(w2);
 
 
-	Glass g4 = new Glass(50,50,25,50);
+	Glass g4 = new Glass(50,50,100,130);
 	g2.setColor(Color.RED); g2.draw(g4);
 
 
@@ -48,7 +48,7 @@ public class AllMyDrawings
 	g5 = ShapeTransforms.translatedCopyOf(g5,150,0);
 	g2.setColor(Color.GREEN); g2.draw(g5);
 
-	Glass g6 = new Glass(0,200,50,75);
+	Glass g6 = new Glass(0,100,40,70);
 	g2.setColor(Color.ORANGE); g2.draw(g6);
 	
 	// drawing label
@@ -56,26 +56,29 @@ public class AllMyDrawings
 	Stroke orig2=g2.getStroke();
 	g2.setStroke(orig2);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few glasses by Laura Anthony", 20,20);
+	g2.drawString("A bunch of glasses by Laura Anthony", 20,20);
     }
     
 
     public static void drawPicture2(Graphics2D g2) {
 
-	Glass h1 = new Glass(100,250,50,75);
-	g2.setColor(Color.BLACK); g2.draw(h1);
+	//	Glass h1 = new Glass(100,250,50,75);
+	//	g2.setColor(Color.BLACK); g2.draw(h1);
 
 
-      	WineGlass w1 = new WineGlass(100,150,50,75); 
+      	WineGlass w1 = new WineGlass(100,200,75,75); 
 	g2.setColor(Color.MAGENTA); g2.draw(w1);
+
+	WineGlass w2 = new WineGlass(100,100,40,75); 
+	g2.setColor(Color.RED); g2.draw(w2);
 	
 
-	/*	
+		
 	// drawing label
-	
+	Stroke orig=g2.getStroke();
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of glasses and a few wine glasses by Laura Anthony", 20,20);*/
+	g2.drawString("A bunch of wine glasses by Laura Anthony", 20,20);
 
 	
     }
@@ -84,16 +87,18 @@ public class AllMyDrawings
     public static void drawPicture3(Graphics2D g2) {
 	
 	
-	g2.drawString("A bunch of wine glasses by Laura Anthony", 20,20);
+	g2.drawString("A bunch of glasses and wine glasses by Laura Anthony", 20,20);
 	
 	
 	// Draw some wine glasses.
 	
-	Glass large = new Glass(100,50,225,150);
-	Glass smallCC = new Glass(20,50,40,30);
+	Glass one = new Glass(100,70,30,23);
+	Glass two = new Glass(100,200,40,23);
+	Glass three = new Glass(25,130,40,23);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	g2.setColor(Color.RED);     g2.draw(one);
+	g2.setColor(Color.GREEN);   g2.draw(two);
+	g2.setColor(Color.BLUE);   g2.draw(three);
 	
     }       
 }

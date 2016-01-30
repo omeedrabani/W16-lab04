@@ -27,71 +27,59 @@ public class Glass extends GeneralPathWrapper implements Shape
         // Specify the upper left corner, and the 
         //  width and height of the original points used to 
         //  plot the *hard-coded* coffee cup
-	  
-        final double ORIG_ULX = 100.0; 
-        final double ORIG_ULY = 100.0; 
+		  
+        final double ORIG_ULX = -200.0; 
+        final double ORIG_ULY = -200.0; 
         final double ORIG_HEIGHT = 300.0; 
-        final double ORIG_WIDTH = 400.0; 
-        
+        final double ORIG_WIDTH = 300.0; 
+	 
         GeneralPath LCurve = new GeneralPath();
 	
-        // left side of cup
+        // left side of glass
 	
-        LCurve.moveTo(400,400);
-	LCurve.lineTo(380,395);
-        LCurve.lineTo(360,390);
-        LCurve.lineTo(340,385);
-        LCurve.lineTo(320,380);
-	LCurve.lineTo(300,375);
-	LCurve.lineTo(285,370);
-	LCurve.lineTo(270,360);
-	LCurve.lineTo(265,350);
-	LCurve.lineTo(260,340);
-	LCurve.lineTo(255,330);
-	LCurve.lineTo(250,325);	
-        LCurve.lineTo(250,200);
-	LCurve.lineTo(255,170);	
-        LCurve.lineTo(260,165);
-	LCurve.lineTo(265,160);	
-        LCurve.lineTo(270,155);
-	LCurve.lineTo(275,150);	
-        LCurve.lineTo(277,145);
-	LCurve.lineTo(280,140);
+        LCurve.moveTo(x,y);
+	LCurve.lineTo(x-20,y-5);
+	LCurve.lineTo(x-40,y-10);
+	LCurve.lineTo(x-60,y-15);
+	LCurve.lineTo(x-80,y-20);
+	LCurve.lineTo(x-100,y-25);
+	LCurve.lineTo(x-100,y-200);		
+	LCurve.lineTo(x-95,y-200);
+	LCurve.lineTo(x-90,y-200);
+       
 
 
-	Shape wineLine  = new Arc2D.Double(250.00,175.00, 600.00,
+	Shape glassRing2  = new Arc2D.Double(x-100,y-250, 600.00,
 				   100.00, 0.00, -180.00, Arc2D.OPEN);
+
 	
-        Shape glassRing = new Ellipse2D.Double(280,100,555,100);
-	Shape bottomCurve = new Arc2D.Double(400.00,385.00, 300.00,
-				   30.00, 0.00, -180.00, Arc2D.OPEN);
+	Shape wineLine  = new Arc2D.Double(x-100,y-200, 600.00,
+				   100.00, 0.00, -180.00, Arc2D.OPEN);
+	Shape bottomCurve  = new Arc2D.Double(x,y, 400.00,
+				   0.00, 0.00, -180.00, Arc2D.OPEN);
+
+	Shape glassRing  = new Arc2D.Double(x-100,y-250, 600.00,
+				   100.0, 0.00, 180.00, Arc2D.OPEN);
 	
+
 	
         Shape RCurve = ShapeTransforms.horizontallyFlippedCopyOf(LCurve);
        
         RCurve = ShapeTransforms.translatedCopyOf(RCurve, 600.0, 0.0);
        
-        GeneralPath wholeCup = new GeneralPath ();
-        wholeCup.append(glassRing, false);
-        wholeCup.append(LCurve, false);
-        wholeCup.append(RCurve, false);
-	wholeCup.append(bottomCurve, false);
-	wholeCup.append(wineLine, false); 
+        GeneralPath wholeGlass = new GeneralPath ();
+        wholeGlass.append(glassRing, false);
+        wholeGlass.append(LCurve, false);
+        wholeGlass.append(RCurve, false);
+	wholeGlass.append(bottomCurve, false);
+	wholeGlass.append(wineLine, false);
+        wholeGlass.append(glassRing2, false);
+	
 
-        // translate to the origin by subtracting the original upper left x and y
-        // then translate to (x,y) by adding x and y
         
-        Shape s = ShapeTransforms.translatedCopyOf(wholeCup, -ORIG_ULX + x, -ORIG_ULY + y);
- 
-	// scale to correct height and width
-        s =  ShapeTransforms.scaledCopyOf(s,
-					  width/ORIG_WIDTH,
-					  height/ORIG_HEIGHT) ;
-	 
-	// Use the GeneralPath constructor that takes a shape and returns
-	// it as a general path to set our instance variable cup
-        
-	this.set(new GeneralPath(s));
+		Shape s = ShapeTransforms.translatedCopyOf(wholeGlass, -ORIG_ULX + x, -ORIG_ULY + y);
+		s =  ShapeTransforms.scaledCopyOf(s,  width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
+		this.set(new GeneralPath(s));
         
     }
 

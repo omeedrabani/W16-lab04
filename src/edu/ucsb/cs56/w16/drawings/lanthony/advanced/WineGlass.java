@@ -3,7 +3,11 @@ import java.awt.geom.GeneralPath;
 import java.awt.Shape; 
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.Graphics;
+import java.awt.geom.Arc2D;
 
+import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 
 /**
    A Wine Glass 
@@ -17,28 +21,37 @@ public class WineGlass extends Glass implements Shape
     public WineGlass(double x, double y, double width, double height)
     {
 	// construct the basic glass
-	super(x,y,width,height);
-	
-	GeneralPath gp = this.get();
+	super(x,y, width, height);
+			  
 
+	//	GeneralPath gp = this.get();
 
-	double stop = height;
-	double sW = .50*width;
-	double sHt = 1.5 * height;
-		
-	Rectangle2D.Double stem =
-	    new Rectangle2D.Double(x + 7.5*sW, y + height, .25* sW, sHt);
+	//	double stop = height;
+	//	double sW = .50*width;
+		//	double sHt = 1.5 * height;
+       
+		Rectangle2D.Double stem =
+	  new Rectangle2D.Double(3.37*x, y, (1/5)*width, height);
 
+	/*	GeneralPath stem = new GeneralPath();
+	stem.moveTo(x,y);
+	stem.lineTo(x,y-5);
+	*/
+	Shape glassRing  = new Arc2D.Double(x-100,y-250, 100.00,
+				   100.0, 0.00, 180.00, Arc2D.OPEN);
 
-	Shape glassRing = new Ellipse2D.Double(x + 7.5*sW - .30*sHt, y + (.89)*height + sHt, .65*sHt ,(1.2)*sW);
+	Shape glassRing2  = new Arc2D.Double(x-100,y-250, 100.00,
+				   100.00, 0.00, -180.00, Arc2D.OPEN);
 
-	
-	//	Shape glassRing = new Ellipse2D.Double(x + 7.5*sW, y + height + sHt,(1/5)*width,(1/3)*height);
 
 	GeneralPath wholeGlass = this.get();
         wholeGlass.append(stem, false);
-      	wholeGlass.append(glassRing, false); 
-       
+      	wholeGlass.append(glassRing, false);
+	wholeGlass.append(glassRing2, false);
+	       
+
+        
+
 
 
 	
