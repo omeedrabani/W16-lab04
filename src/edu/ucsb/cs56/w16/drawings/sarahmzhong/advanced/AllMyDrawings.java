@@ -73,8 +73,8 @@ public class AllMyDrawings
 	
 	// Draw some snails
 	
-  Snail fat = new Snail(50, 50, 300, 100, 100);
-	Snail tiny = new Snail(20,150,40,10,20);
+  Snail fat = new Snail(50, 400, 300, 100, 100);
+	Snail tiny = new Snail(200,200,60,10,20);
 	
 	g2.setColor(Color.MAGENTA);     g2.draw(fat);
 	g2.setColor(Color.GREEN);   g2.draw(tiny);
@@ -120,13 +120,15 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of snails by Sarah Zhong", 20,20);
+	g2.drawString("A snail and a slug by Sarah Zhong", 20,20);
 	
+  Snail s1 = new Snail(100,200,100,30,50);
+  Slug s2 = new Slug(300,300,400,20);
+  	
+	// Draw some mollusks	
 	
-	// Draw some coffee cups.	
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	g2.setColor(Color.RED);     g2.draw(s1);
+	g2.setColor(Color.GREEN);   g2.draw(s2);
 	
     }       
 }
