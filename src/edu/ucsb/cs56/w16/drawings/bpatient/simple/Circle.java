@@ -1,4 +1,5 @@
-package edu.ucsb.cs56.w16.drawings.bpatient.simple;
+package edu.ucsb.cs56.w16.drawings.bpatient;
+
 
 /**
  * Circle extends Ellipse2D to make it easier to draw circles
