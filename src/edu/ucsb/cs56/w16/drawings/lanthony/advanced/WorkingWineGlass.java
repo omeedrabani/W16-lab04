@@ -4,6 +4,7 @@ import java.awt.Shape;
 import java.awt.Graphics;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Arc2D;
+import java.awt.geom.Rectangle2D;
 
 import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
@@ -16,12 +17,12 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
    @version for CS56, W16, UCSB
    
 */
-public class Glass extends GeneralPathWrapper implements Shape
+public class WorkingWineGlass extends GeneralPathWrapper implements Shape
 {   
     /**
      * Constructor for objects of class Glass 
      */
-    public Glass (double x, double y, double width, double height)
+    public WorkingWineGlass (double x, double y, double width, double height)
     {
 	
 		  
@@ -65,7 +66,15 @@ public class Glass extends GeneralPathWrapper implements Shape
         Shape RCurve = ShapeTransforms.horizontallyFlippedCopyOf(LCurve);
        
         RCurve = ShapeTransforms.translatedCopyOf(RCurve, 600.0, 0.0);
-       
+
+	Rectangle2D.Double stem =
+	    new Rectangle2D.Double(x+150,  y, (0.6)*width,3*height);
+
+
+
+	Ellipse2D.Double  BottomRing = new Ellipse2D.Double(x-60, y +2.9*height, 500, 40);
+
+
         GeneralPath wholeGlass = new GeneralPath ();
         wholeGlass.append(glassRing, false);
         wholeGlass.append(LCurve, false);
@@ -73,7 +82,10 @@ public class Glass extends GeneralPathWrapper implements Shape
 	wholeGlass.append(bottomCurve, false);
 	wholeGlass.append(wineLine, false);
         wholeGlass.append(glassRing2, false);
-	
+
+	wholeGlass.append(stem, false);
+      	wholeGlass.append(BottomRing, false); 
+	                                 	
 
         
 		Shape s = ShapeTransforms.translatedCopyOf(wholeGlass, -ORIG_ULX + x, -ORIG_ULY + y);

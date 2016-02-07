@@ -31,7 +31,7 @@ public class WineGlass extends Glass implements Shape
 		//	double sHt = 1.5 * height;
        
 		Rectangle2D.Double stem =
-	  new Rectangle2D.Double(3.37*x, y, (1/5)*width, height);
+	  new Rectangle2D.Double(3*x, 1.5*y, (1/5)*width, height);
 
 	/*	GeneralPath stem = new GeneralPath();
 	stem.moveTo(x,y);
