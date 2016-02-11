@@ -16,14 +16,16 @@ public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
 
-  //  private PizzaWithPepperonis pizzaPeps = new PizzaWithPepperonis(100.0, 100.0, 50.0, 75.0);
 
     Thread anim;
 
     private double x = 100.0;
     private double y = 100.0;
+     private int z = 1;
 
     private int dx = 5;
+    private int dy = 5;
+    private int dz = 1;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -67,6 +69,7 @@ public class AnimatedPictureViewer {
 
           // Draw the Pizza
           g2.setColor(Color.RED);
+          g2.setStroke(new BasicStroke(z));
           PizzaWithPepperonis test = new PizzaWithPepperonis(x-35, y-40, 10.0, 35.0);
           g2.draw(test);
           g2.setColor(Color.ORANGE);
@@ -96,9 +99,13 @@ public class AnimatedPictureViewer {
 
             if (x >= 400) { dx = -20; }
             if (x <= 50) { dx = 20; }
-
+            if (y >= 400) {dy = -20;}
+            if (y <=50) {dy = 20;}
+            if (z >= 20) {dz = -2;}
+            if (z <=5) {dz = 2;}
             x += dx;
-            y += dx;
+            y += dy;
+            z += dz;
             panel.repaint();
             Thread.sleep(50);
           }
