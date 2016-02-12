@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
+
 /**
  * A main class to view an animation
  *
@@ -16,14 +18,17 @@ public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
     
-    private Spoon spoon = new Spoon(50, 50, 100, 340);
+    // private Spoon spoon = new Spoon(50, 50, 100, 340);
     
     Thread anim;
     
-    private int x = 50;
-    private int y = 50;
-    
+    private int x = -250;
+    private int y = 20;
+    private double scoop = 0.15;
+
     private int dx = 5;
+    private int dy = 10;
+    private double dscoop = 0.025;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -35,7 +40,7 @@ public class AnimatedPictureViewer {
 
       frame.getContentPane().add(panel);
       frame.setSize(640,480);
-      frame.setTitle("Ricky Kuang's Animation")
+      frame.setTitle("Ricky Kuang's Animation");
       frame.setVisible(true);
       
       frame.getContentPane().addMouseListener(new MouseAdapter() {
@@ -68,8 +73,10 @@ public class AnimatedPictureViewer {
 
           // Draw the Spoon
           g2.setColor(Color.RED);
-          Spoon test = new Spoon(x, y, 100, 340);
-          g2.draw(test);
+          Spoon spoon = new Spoon(x, y, 100, 340);
+          Shape spoonRotated = ShapeTransforms.rotatedCopyOf(spoon, Math.PI/2);
+          spoonRotated = ShapeTransforms.rotatedCopyOf(spoonRotated, scoop);
+          g2.draw(spoonRotated);
        }
     }
     
@@ -79,12 +86,18 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (x >= 400) { dx = -5; }
-            if (x <= 50) { dx = 5; }
+            if (x >= 800) { x = -250; }
+            if (x <= 640) { x += dx; }
+
+            if (y >= 140) { dy = -10; dscoop = -0.025; }
+            if (y <= -80) { dy = 10; dscoop = 0.025; }
             
-            x += dx;                
+            x += dx;
+            y += dy;
+            scoop += dscoop;
+
             panel.repaint();
-            Thread.sleep(50);
+            Thread.sleep(30);
           }
         } catch(Exception ex) {
           if (ex instanceof InterruptedException) {
