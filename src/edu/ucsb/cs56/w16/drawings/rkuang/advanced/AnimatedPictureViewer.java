@@ -40,7 +40,7 @@ public class AnimatedPictureViewer {
 
       frame.getContentPane().add(panel);
       frame.setSize(640,480);
-      frame.setTitle("Ricky Kuang's Animation");
+      frame.setTitle("Ricky Kuang's Animation: Scoops!");
       frame.setVisible(true);
       
       frame.getContentPane().addMouseListener(new MouseAdapter() {
