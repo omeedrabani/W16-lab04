@@ -20,10 +20,11 @@ public class AnimatedPictureViewer {
     
     Thread anim;   
     
-    private int x = 170;
+    private int x = 220;
     private int y = 160;
     
-    private int dx = 5;
+    private int dy = 5;
+    private double dx = 6.66;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -78,10 +79,14 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (y >= 194) { dx = -5; }
-            if (y <= 0) { dx = 5; }
+            if (y >= 194) { dy = -5; }
+            if (y <= 0) { dy = 5; }
+
+	    if (x <= 0) {dx = 6.66;}
+	    if (x >= 420) {dx = -6.66;}
             
-            y += dx;                
+            y += dy;
+	    x += dx;
             panel.repaint();
             Thread.sleep(50);
           }
