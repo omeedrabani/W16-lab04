@@ -1,10 +1,11 @@
 package edu.ucsb.cs56.w16.drawings.andychen152.advanced;
 
+import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
-
+import java.lang.Math;
 /**                                                                                                                                                                                                                            
  * A main class to view an animation                                                                                                                                                                                           
  *                                                                                                                                                                                                                             
@@ -29,6 +30,8 @@ public class AnimatedPictureViewer {
 
     private int tmpx = x;
     private int tmpy = y;
+    private boolean clicked = true;
+    private double counter = 0.0;
 
     private int dx = 5;
     private int dy = 4;
@@ -73,6 +76,7 @@ public class AnimatedPictureViewer {
 		    System.out.println("Mouse pressed");
 		    tmpx = x;
 		    tmpy = y;
+		    clicked = false;
 		    anim.interrupt();
 		    while(anim.isAlive()){}
 		    anim = null;
@@ -85,6 +89,7 @@ public class AnimatedPictureViewer {
 		    System.out.println("MouseReleased");
 		    y = tmpy;
 		    x = tmpx;
+		    clicked = true;
 		    anim2.interrupt();
 		    while(anim2.isAlive()){}
 		    anim2=null;
@@ -105,8 +110,8 @@ public class AnimatedPictureViewer {
 	    g2.setColor(Color.white);
 	    g2.fillRect(0,0,this.getWidth(), this.getHeight());
 	    g2.setColor(Color.BLACK);
-
-	    g2.drawString("Hold Click to pause and vibrate monitor, Release to continue default animation", 20, 20);
+	   
+	    g2.drawString("Click and hold buttom to vibrate and reverse direction monitor is turning", 20, 20);
 
 
 	    // Draw the Computer Monitor                                                                                                                                                                          
@@ -126,9 +131,15 @@ public class AnimatedPictureViewer {
 		g2.setColor(Color.BLACK);
 	    }
 
-
+	    
 	    ComputerMonitor test = new ComputerMonitor(x, y, width, height);
-	    g2.draw(test);
+
+	    Shape test2 = ShapeTransforms.rotatedCopyOf(test, counter % (2*Math.PI));
+	    if (clicked)
+		counter += 0.03;
+	    else
+		counter -= 0.03;
+	    g2.draw(test2);
 	}
     }
 

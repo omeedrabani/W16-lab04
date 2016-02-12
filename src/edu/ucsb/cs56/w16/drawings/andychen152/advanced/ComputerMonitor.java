@@ -28,6 +28,7 @@ public class ComputerMonitor extends GeneralPathWrapper implements Shape
        @param width width of the computer monitor                                            
        @param height of computer monitor, including stand                                                           
     */
+
     public ComputerMonitor(double x, double y, double width, double height)
     {
 
@@ -67,7 +68,7 @@ public class ComputerMonitor extends GeneralPathWrapper implements Shape
 	// Make the inside monitor
 	Rectangle2D.Double insideMonitor = 
 	    new Rectangle2D.Double(insideMonitorUpperLeftX, insideMonitorUpperLeftY, insideMonitorWidth, insideMonitorHeight);
-
+       
 	// Make the stands
         Line2D.Double leftStand =
             new Line2D.Double (stand1startX, standALLstartY,
@@ -88,5 +89,6 @@ public class ComputerMonitor extends GeneralPathWrapper implements Shape
 	wholeMonitor.append(leftStand, false);
 	wholeMonitor.append(rightStand, false);
 	wholeMonitor.append(webcam, false);
+
     }
 }
