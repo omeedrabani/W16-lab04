@@ -18,11 +18,17 @@ public class AnimatedPictureViewer {
     private PaintCanvas canvas = new PaintCanvas();
     private static Shape zaa;
 
-
+    /**
+     * Where Main Application is Executed to Animate my Pizza
+     * @param args
+     */
     public static void main(String[] args) {
         new AnimatedPictureViewer().go();
     }
 
+    /**
+     * Create Frame and Canvas. Then repaint on once the mouse is entered into the Window
+     */
     public void go() {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,6 +51,9 @@ public class AnimatedPictureViewer {
 
     }
 
+    /**
+     * Canvas repaint handles the shape transformation.
+     */
     public class Rotate implements Runnable {
 
         @Override
@@ -63,6 +72,10 @@ public class AnimatedPictureViewer {
 
     public class PaintCanvas extends JPanel {
 
+        /**
+         * Draw my Pizza
+         * @param g
+         */
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponents(g);
