@@ -8,8 +8,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- *  * Created by angel on 2/12/16.
- *   */
+ * A class for creating a Pizza in a window and animating the pizza to rotate.
+ *
+ * @author Angel Ortega
+ * @version for UCSB CS56, W16
+ */
 public class AnimatedPictureViewer {
 
     private int xPos;
