@@ -1,13 +1,13 @@
-package edu.ucsb.cs56.w16.drawings.pconrad.advanced;
+package edu.ucsb.cs56.w16.drawings.christiannewkirk.advanced;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
 /**
-   A component that draws a Picture by Phill Conrad
+   A component that draws a Picture by Christian Newkirk
    
-   @author Phill Conrad (original drawing)
+   @author Christian Newkirk
    @version CS56, W16, UCSB
 */
 
