@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.bpatient;
+package edu.ucsb.cs56.w16.drawings.bpatient.simple;
 
 
 /**
